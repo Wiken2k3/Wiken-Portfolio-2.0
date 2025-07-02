@@ -1,20 +1,20 @@
-'use client';
+'use client'
 
-import React, { useRef, useEffect } from 'react';
-import Image from 'next/image';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React, { useRef, useEffect } from 'react'
+import Image from 'next/image'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-import styles from '@/styles/sections/about.module.css';
+import styles from '@/styles/sections/about.module.css'
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
 export default function About() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    if (!sectionRef.current) return;
-    const el = sectionRef.current;
+    if (!sectionRef.current) return
+    const el = sectionRef.current
 
     gsap.fromTo(
       el.querySelectorAll(`.${styles.fadeSlide}`),
@@ -31,9 +31,9 @@ export default function About() {
           toggleActions: 'play none none reverse',
         },
       }
-    );
+    )
 
-    const img = el.querySelector(`.${styles.studentCard}`);
+    const img = el.querySelector(`.${styles.studentCard}`)
     if (img) {
       gsap.fromTo(
         img,
@@ -49,13 +49,15 @@ export default function About() {
             start: 'top 80%',
           },
         }
-      );
+      )
     }
-  }, []);
+  }, [])
 
   return (
     <section className={styles.aboutSection} id="about" ref={sectionRef}>
-      <div className={styles.overlay}>
+      <div className={styles.overlay}></div>
+
+      <div className={styles.contentWrapper}>
         <h2 className={`${styles.title} ${styles.fadeSlide}`}>ABOUT ME</h2>
         <div className={styles.content}>
           <div className={styles.info}>
@@ -79,6 +81,7 @@ export default function About() {
                 <li>Strong Logical Thinking</li>
               </ul>
             </div>
+
             <div className={styles.column}>
               <p><strong>Year of birth:</strong> 2003</p>
               <p><strong>Study In:</strong> Văn Lang University</p>
@@ -102,8 +105,8 @@ export default function About() {
             <Image
               src="/student-card.png"
               alt="Student Card"
-              fill // dùng fill để ảnh full kích thước div cha
-              style={{ objectFit: 'contain' }} // hoặc 'cover' tùy bạn muốn
+              fill
+              style={{ objectFit: 'cover' }}
               className={styles.studentCard}
               priority
               quality={100}
@@ -112,5 +115,5 @@ export default function About() {
         </div>
       </div>
     </section>
-  );
+  )
 }

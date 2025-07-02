@@ -1,37 +1,48 @@
-'use client';
+'use client'
 
-import { useEffect, useRef } from 'react';
-import styles from '@/styles/sections/hero.module.css';
-import Image from 'next/image';
-import { gsap } from 'gsap';
-import BlobBackground from '@/components/BlobBackground';
-import { FaDownload } from 'react-icons/fa';
+import { useEffect, useRef } from 'react'
+import styles from '@/styles/sections/hero.module.css'
+import Image from 'next/image'
+import { gsap } from 'gsap'
+import BlobBackground from '@/components/BlobBackground'
+import { FaDownload } from 'react-icons/fa'
 
 export default function Hero() {
-  const textRef = useRef(null);
-  const imgRef = useRef(null);
+  const textRef = useRef(null)
+  const imgRef = useRef(null)
 
   useEffect(() => {
-    gsap.from(textRef.current, {
-      x: -100,
-      opacity: 0,
-      duration: 1,
-      ease: 'power2.out',
-    });
-
     gsap.from(imgRef.current, {
-      x: 100,
+      x: -80,
       opacity: 0,
-      duration: 1,
+      duration: 1.2,
+      ease: 'power2.out',
+    })
+
+    gsap.from(textRef.current, {
+      x: 80,
+      opacity: 0,
+      duration: 1.2,
       delay: 0.3,
       ease: 'power2.out',
-    });
-  }, []);
+    })
+  }, [])
 
   return (
     <section id="hero" className={styles.hero}>
       <BlobBackground />
       <div className={styles.container}>
+        <div className={styles.avatarWrapper} ref={imgRef}>
+          <Image
+            src="/avatar.jpg"
+            alt="Avatar"
+            width={400}
+            height={400}
+            className={styles.avatarImg}
+            priority
+          />
+        </div>
+
         <div className={styles.text} ref={textRef}>
           <h1>
             Xin chào, tôi là <span className={styles.highlight}>Wiken</span>
@@ -53,15 +64,12 @@ export default function Hero() {
               download
               className={styles.secondaryBtn}
             >
-               <FaDownload /> &nbsp;Tải CV PDF
+              <FaDownload className={styles.icon} />
+              &nbsp;Tải CV PDF
             </a>
           </div>
         </div>
-
-        <div className={styles.avatarWrapper} ref={imgRef}>
-          <img src="/avatar.jpg" alt="Avatar" className={styles.avatarImg} />
-        </div>
       </div>
     </section>
-  );
+  )
 }

@@ -1,0 +1,117 @@
+.skillsSection {
+  position: relative;
+  padding: 100px 0;
+  background-color: black;
+  color: white;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 60px;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.subTitle {
+  font-size: 1.8rem;
+  color: white;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.category {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 24px 0 12px;
+  color: var(--primary-color);
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.skillItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+.skillItem:hover {
+  transform: scale(1.05);
+}
+
+.softSkills {
+  margin-top: 60px;
+}
+
+.softBlock {
+  margin-bottom: 40px;
+}
+
+.softBlock h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.carousel {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.sliderItem {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.sliderImg {
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.staticImage {
+  position: relative;
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .skillsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sliderItem, .staticImage {
+    height: 220px;
+  }
+
+  .subTitle {
+    text-align: center;
+  }
+
+  .category {
+    text-align: center;
+  }
+}

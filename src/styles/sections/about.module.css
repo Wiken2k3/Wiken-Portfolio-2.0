@@ -1,28 +1,28 @@
 .aboutSection {
   position: relative;
-  background-image: url('/vanlang-bg.jpg'); /* nền */
+  background-image: url('/vanlang-bg.jpg');
   background-size: cover;
   background-position: center;
   color: #fff;
-  font-family: 'Times New Roman', Times, serif;
-  padding: 60px 40px;
-  min-height: 100vh; /* full chiều cao viewport */
+  min-height: 100vh;
+  overflow: hidden;
 }
 
-/* overlay đen phủ toàn bộ section, semi-transparent */
+/* overlay phủ toàn bộ */
 .overlay {
   position: absolute;
-  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  inset: 0;
   background-color: rgba(0, 0, 0, 0.85);
   z-index: 1;
 }
 
-/* Nội dung cần nằm trên overlay */
+/* nội dung chính nằm trên overlay */
 .contentWrapper {
   position: relative;
   z-index: 2;
-  padding: 60px 40px;
-  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,57 +34,32 @@
   font-weight: 700;
   margin-bottom: 40px;
   text-align: center;
-  letter-spacing: 1.4px;
   text-transform: uppercase;
-  color: #fee440;
+  color: var(--primary-color);
 }
 
-/* layout chính */
+/* Main layout */
 .content {
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
   justify-content: center;
-  position: relative;
-  z-index: 2;
 }
 
-/* Thông tin */
 .info {
   flex: 1 1 500px;
   display: flex;
   gap: 40px;
-  color: white;
+  flex-wrap: wrap;
 }
 
 .column {
   flex: 1;
+  min-width: 220px;
 }
 
-/* Wrapper ảnh */
-.imageWrapper {
-  position: relative; /* cần để chứa ảnh fill */
-  flex: 1 1 320px;
-  min-height: 300px; /* cho ảnh có chiều cao */
-  max-width: 500px;
-  border-radius: 12px;
-  overflow: hidden; /* để ảnh bo góc */
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
-  cursor: pointer;
-  transition: transform 0.4s ease;
-}
-
-.imageWrapper:hover {
-  transform: scale(1.05);
-}
-
-/* Image next/image sẽ nhận class này */
-.studentCard {
-  object-fit: contain; /* đảm bảo ảnh không bị méo */
-}
-
-/* Các đoạn text & list */
-.info p, .info ul {
+.info p,
+.info ul {
   margin-bottom: 20px;
 }
 
@@ -95,10 +70,30 @@
 .info li {
   margin-bottom: 8px;
   font-size: 1rem;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
-/* Animation */
+/* Ảnh */
+.imageWrapper {
+  position: relative;
+  flex: 1 1 320px;
+  min-height: 320px;
+  max-width: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+  transition: transform 0.4s ease;
+}
+
+.imageWrapper:hover {
+  transform: scale(1.05);
+}
+
+.studentCard {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
 .fadeSlide {
   opacity: 0;
   transform: translateY(40px);
@@ -109,14 +104,17 @@
 @media (max-width: 768px) {
   .content {
     flex-direction: column;
+    align-items: center;
   }
+
   .info {
     flex-direction: column;
     gap: 20px;
   }
+
   .imageWrapper {
     margin-top: 30px;
     max-width: 100%;
-    min-height: 200px;
+    min-height: 240px;
   }
 }

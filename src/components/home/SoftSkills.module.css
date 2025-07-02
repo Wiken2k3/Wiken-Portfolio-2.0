@@ -1,0 +1,116 @@
+.softSkills {
+  padding: 80px 20px;
+  /* Giữ phần nền của toàn block trong suốt nếu muốn */
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.subTitle {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 48px;
+  text-transform: uppercase;
+  color: #00e0ff;
+  letter-spacing: 1px;
+}
+
+.softBlock {
+  margin-bottom: 60px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 32px 24px;
+  transition: transform 0.3s ease;
+}
+.softBlock:hover {
+  transform: translateY(-6px);
+}
+
+.softBlock h4 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.carousel {
+  margin-top: 12px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.sliderItem {
+  position: relative;
+  width: 100%;
+  height: 460px;
+  background-color: #FFFFFF0D; /* màu nền xám nhạt trong suốt */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.staticImage {
+  position: relative;
+  height: 460px;
+  background-color: rgba(255, 0, 0, 0,3);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sliderImg {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none; /* chặn kéo ảnh trên Safari */
+}
+
+
+.skillCaption {
+  margin-top: 16px;
+  font-size: 1rem;
+  color: #ccc;
+  font-style: italic;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .sliderItem,
+  .staticImage {
+    height: 320px;
+  }
+  .subTitle {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sliderItem,
+  .staticImage {
+    height: 260px;
+  }
+  .softBlock {
+    padding: 24px 16px;
+  }
+  .skillCaption {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .sliderItem,
+  .staticImage {
+    height: 200px;
+  }
+  .subTitle {
+    font-size: 1.5rem;
+  }
+}
